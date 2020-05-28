@@ -1,0 +1,9 @@
+.country-item{
+  display: grid;
+  grid-template-columns: 36px 2fr repeat(3,1fr);
+  grid-auto-flow: column;
+}
+
+.country-item:hover{
+  background-color: #fff;
+}

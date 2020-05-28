@@ -1,0 +1,32 @@
+@import '../Vars.scss';
+
+.world-cases{
+  width: 90%;
+  max-width: 800px;
+  background-color: #fff;
+  margin: auto;
+  border-radius: 16px;
+
+  .world-cases__items{
+    display: grid;
+    grid-auto-flow: column;
+
+    .world-cases__item{
+      padding: $space-medium;
+    }
+  }
+
+  .world-cases__title{
+    display: flex;
+    height: auto;
+    align-items: center;
+    border-bottom: 1px solid #000;
+    padding: $space-medium;
+    
+    i{
+      font-size: 36px;
+      margin-right: $space-small;
+    }
+  }
+  
+}

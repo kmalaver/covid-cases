@@ -1,5 +1,41 @@
 @import "./Vars.scss";
+@import "./icons/fontawesome.scss";
+@import "./icons/solid.scss";
+
 
 body{
-  background-color: $color-red;
+  background-color: #eee;
+  font-family: $theme-font;
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+  color: $color-dark;
+}
+
+// font sizes
+
+.t-small{
+  font-size: 16px;
+}
+
+.t-medium{
+  font-size: 24px;
+}
+
+.t-large{
+  font-size: 32px;
+}
+
+//ff
+
+h1,h2,h3,p{
+  margin:0;
+}
+
+
+input:focus{
+  outline: none;
 }
