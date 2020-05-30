@@ -5,6 +5,7 @@
   max-width: 800px;
   margin: auto;
   margin-top: 24px;
+  border-radius: 24px;
 
   .country__search{
     display: flex;
@@ -18,6 +19,28 @@
       border: none;
       background: none;
     }
+  }
+
+  .country-list__header{
+    margin-top: $space-medium;
+    display: grid;
+    grid-template-columns: 64px 1fr repeat(3,1fr);
+    padding: $space-medium;
+    padding-right: $space-medium+20px;
+    background-color: #fff;
+    text-align: right;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .country-list__items{
+    height: 300px;
+    overflow-y: scroll;
+    background-color: #fff;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
   }
 
   .country__search:hover{

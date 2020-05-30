@@ -1,24 +1,30 @@
 import React, { useState , useEffect} from 'react'
 import { connect } from 'react-redux'
+import { setData } from '../actions'
 import WorldCases from '../components/WorldCases'
 import CountryList from '../components/CountryList'
 import CountryItem from '../components/CountryItem'
+import Loader from '../components/Loader'
 
-const Home = () =>{
 
-  const [global,setGlobal] = useState({})
-  const [countries,setCountries] = useState([])
+
+const Home = ({Global,Countries, isData, filterData, setData}) =>{
+
+  const [isLoading , setLoading] = useState(false);
 
   useEffect(() => {
-    fetch('https://api.covid19api.com/summary')
-    .then(res => res.json())
-      .then(response => {
-        setGlobal(response.Global);
-        setCountries(response.Countries.sort(compare))
-        console.log(response)
-      })
-      .catch(error => console.log(error));
+    if(!isData){
+      fetch('https://api.covid19api.com/summary')
+      .then(res => res.json())
+        .then(response => {
+          setData(response)
+          console.log(response)
+        })
+        .catch(error => console.log(error));
+    }
   }, []);
+
+
 
   function compare( a, b ) {
     if ( a.TotalDeaths < b.TotalDeaths ){
@@ -30,26 +36,46 @@ const Home = () =>{
     return 0;
   }
   
-  return(
+  console.log(filterData.length)
+
+  const filterList = (list,filt) =>{
+    if(filt.length>0){
+      return list.filter(item => item.Country.toLowerCase().includes(filt.toLowerCase()))
+    }else{
+      return list
+    }
+  }
+
+  
+
+  return(!isLoading?
     <div className="home">
-      <WorldCases Global={global}></WorldCases>
+      <WorldCases Global={Global}></WorldCases>
       <CountryList>
-        {countries.map((country, i)=>{
+        {filterList(Countries,filterData).map((country, i)=>{
           return(
             <CountryItem key={i} country={country}/>
           )
         })}
       </CountryList>
-    </div>
+    </div>:
+    <Loader/>
 
     
   )
 }
 
-// const mapStateToProps = state =>{
-//   return {
-//     Global: state.Global,
-//   }
-// }
+const mapStateToProps = state =>{
+  return {
+    Global: state.response.Global,
+    Countries: state.response.Countries,
+    isData: state.isData,
+    filterData:state.filterData
+  }
+}
 
-export default (Home)
+const mapDispatchToProps = {
+  setData
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Home)

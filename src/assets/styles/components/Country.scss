@@ -1,0 +1,38 @@
+.graph-list{
+  margin: auto;
+  margin-top: 24px;
+  width: 90%;
+  max-width: 800px;
+}
+
+.graph-container{
+  background-color: white;
+  border-radius: 16px;
+  width: 90%;
+  height: 400px;
+  padding: 24px;
+  margin: auto;
+  margin-bottom: 24PX;
+
+  .graph{
+    max-width:50px
+  }
+} 
+
+
+
+.country__header{
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  background-color: #fff;
+
+  h1{
+    text-align: center;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width:1000px){
+
+}

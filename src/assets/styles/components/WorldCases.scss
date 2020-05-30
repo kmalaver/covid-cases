@@ -13,8 +13,37 @@
 
     .world-cases__item{
       padding: $space-medium;
+    
+    .t-medium{
+      color: #777;
     }
+
+    .case-type{
+      display: flex;
+      justify-items: center;
+      margin-bottom: 8px;
+
+      i{
+        font-size: 16px;
+        margin-right: $space-small;
+      }
+
+      .fa-virus{
+        color: #f1c40f;
+      }
+
+      .fa-check{
+        color: #2ecc71;
+      }
+
+      .fa-skull-crossbones{
+        color:#e74c3c;
+      }
+
+    }
+
   }
+}
 
   .world-cases__title{
     display: flex;

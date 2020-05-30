@@ -1,9 +1,18 @@
+@import '../Vars.scss';
+
 .country-item{
   display: grid;
-  grid-template-columns: 36px 2fr repeat(3,1fr);
+  grid-template-columns: 64px 1fr repeat(3,1fr);
   grid-auto-flow: column;
+  text-align: right;
+  padding: 0 $space-medium ;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
 }
 
+
+
 .country-item:hover{
-  background-color: #fff;
+  background-color: #ddd;
 }
+
